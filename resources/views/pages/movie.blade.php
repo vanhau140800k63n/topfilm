@@ -34,7 +34,11 @@
 					<div id="loading_movie"></div>
 				</div>
 			</div>
-			<h1 class="movie__name" id="{{$movie_detail['name']}}">{{$movie_detail->name}} - FullHD Vietsub + Thuyết Minh</h1>
+			<h1 class="movie__name" id="{{$movie_detail['name']}}">{{$movie_detail->name}} - FullHD Vietsub + Thuyết Minh
+			@if(!is_null($movie_detail->episode_count))
+			- Tập {{ $episode }}
+			@endif
+			</h1>
 			@if(!is_null($movie_detail->episode_count))
 			<div class="movie__episodes">
             @for($i = 1; $i <= $movie_detail->episode_count; ++$i)
@@ -52,6 +56,8 @@
 				<div class="recommend__items__name" style="max-width: 100%">
 					<span>Phim ngẫu nhiên</span>
 				</div>
+			</div>
+			<div class="recommend__item">
 			</div>
 		</div>
 		<div class="movie__similar">

@@ -15,7 +15,7 @@
 <title>TOPFILM - Xem phim FullHD Vietsub mới nhất</title>
 @endsection
 @section('content')
-<div class="box homepage">
+<div class="box homepage" index="{{ $index }}">
 	<div class="loader_home">
 		<div class="inner one"></div>
 		<div class="inner two"></div>
@@ -65,25 +65,21 @@
 		</div>
 	</div>
 	<div class="top_search">
-		<div class="top_search__title">Top tìm kiếm</div><a href="http://localhost/filmhot/public/phim-big-mouth-full-hd-vietsub-121348.html" class="top_search__card"><img src="./TOPFILM - Xem phim FullHD Vietsub mới nhất_files/121348top_search.jpg" class="top_search__card__img">
+		<div class="top_search__title">Top tìm kiếm</div><a href="http://localhost/filmhot/public/phim-big-mouth-full-hd-vietsub-121348.html" class="top_search__card"><img src="{{ asset('img/121348top_search.jpg') }}" class="top_search__card__img">
 			<div class="top_search__card__name">Big Mouth</div>
-		</a><a href="http://localhost/filmhot/public/phim-one-piece-dao-hai-tac-full-hd-vietsub-18220.html" class="top_search__card"><img src="./TOPFILM - Xem phim FullHD Vietsub mới nhất_files/18220top_search.jpg" class="top_search__card__img">
+		</a><a href="http://localhost/filmhot/public/phim-one-piece-dao-hai-tac-full-hd-vietsub-18220.html" class="top_search__card"><img src="{{ asset('img/18220top_search.jpg') }}" class="top_search__card__img">
 			<div class="top_search__card__name">One Piece: Đảo Hải Tặc</div>
-		</a><a href="http://localhost/filmhot/public/phim-transit-love-season-2-full-hd-vietsub-121827.html" class="top_search__card"><img src="./TOPFILM - Xem phim FullHD Vietsub mới nhất_files/121827top_search.jpg" class="top_search__card__img">
+		</a><a href="http://localhost/filmhot/public/phim-transit-love-season-2-full-hd-vietsub-121827.html" class="top_search__card"><img src="{{ asset('img/121827top_search.jpg') }}" class="top_search__card__img">
 			<div class="top_search__card__name">Transit Love Season 2</div>
-		</a><a href="http://localhost/filmhot/public/phim-ha-canh-khan-cap-full-hd-vietsub-025093.html" class="top_search__card"><img src="./TOPFILM - Xem phim FullHD Vietsub mới nhất_files/025093top_search.jpg" class="top_search__card__img">
+		</a><a href="http://localhost/filmhot/public/phim-ha-canh-khan-cap-full-hd-vietsub-025093.html" class="top_search__card"><img src="{{ asset('img/025093top_search.jpg') }}" class="top_search__card__img">
 			<div class="top_search__card__name">Hạ Cánh Khẩn Cấp</div>
-		</a><a href="http://localhost/filmhot/public/phim-thor-tinh-yeu-va-sam-set-full-hd-vietsub-022995.html" class="top_search__card"><img src="./TOPFILM - Xem phim FullHD Vietsub mới nhất_files/022995top_search.jpg" class="top_search__card__img">
+		</a><a href="http://localhost/filmhot/public/phim-thor-tinh-yeu-va-sam-set-full-hd-vietsub-022995.html" class="top_search__card"><img src="{{ asset('img/022995top_search.jpg') }}" class="top_search__card__img">
 			<div class="top_search__card__name">Thor: Tình Yêu Và Sấm Sét</div>
-		</a><a href="http://localhost/filmhot/public/phim-youth-mt-full-hd-vietsub-125156.html" class="top_search__card"><img src="./TOPFILM - Xem phim FullHD Vietsub mới nhất_files/125156top_search.jpg" class="top_search__card__img">
+		</a><a href="http://localhost/filmhot/public/phim-youth-mt-full-hd-vietsub-125156.html" class="top_search__card"><img src="{{ asset('img/125156top_search.jpg') }}" class="top_search__card__img">
 			<div class="top_search__card__name">Youth MT</div>
-		</a><a href="http://localhost/filmhot/public/phim-little-women-full-hd-vietsub-123842.html" class="top_search__card"><img src="./TOPFILM - Xem phim FullHD Vietsub mới nhất_files/123842top_search.jpg" class="top_search__card__img">
+		</a><a href="http://localhost/filmhot/public/phim-little-women-full-hd-vietsub-123842.html" class="top_search__card"><img src="{{ asset('img/123842top_search.jpg') }}" class="top_search__card__img">
 			<div class="top_search__card__name">Little Women</div>
-		</a><a href="http://localhost/filmhot/public/phim-dinner-mate-full-hd-vietsub-18734.html" class="top_search__card"><img src="./TOPFILM - Xem phim FullHD Vietsub mới nhất_files/1639462959357_6befc3320d9f686d52555a857bb8f503iJ57CkNrTa0w3ZFczUSoBdB9awA.jpg" class="top_search__card__img">
-			<div class="top_search__card__name">Dinner Mate</div>
-		</a><a href="http://localhost/filmhot/public/phim-start-up-full-hd-vietsub-16525.html" class="top_search__card"><img src="./TOPFILM - Xem phim FullHD Vietsub mới nhất_files/1637052501694_2c55237880606ef3a359744aa18c2d3d8NK9un1DPUTgRzGtJHMvpdIB5Ay.jpg" class="top_search__card__img">
-			<div class="top_search__card__name">Start-Up</div>
-		</a><a href="http://localhost/filmhot/public/phim-good-job-full-hd-vietsub-124125.html" class="top_search__card"><img src="./TOPFILM - Xem phim FullHD Vietsub mới nhất_files/124125top_search.jpg" class="top_search__card__img">
+		</a><a href="http://localhost/filmhot/public/phim-good-job-full-hd-vietsub-124125.html" class="top_search__card"><img src="{{ asset('img/124125top_search.jpg') }}" class="top_search__card__img">
 			<div class="top_search__card__name">Good Job</div>
 		</a>
 	</div>
@@ -109,6 +105,35 @@
 		},
 		mousewheel: true,
 		keyboard: true,
+	});
+
+
+	var scroll = true;
+	$(window).scroll(function() {
+		if ($('.box').hasClass('homepage')) {
+			value = $('header').height() + $(".homepage").height() - $(window).scrollTop() - $(window).height() - 1000;
+			if (value < 0 && scroll) {
+				scroll = false;
+				let _token = $('input[name="_token"]').val();
+				$.ajax({
+					url: "{{route('home-ajax')}}",
+					type: "POST",
+					dataType: 'json',
+					data: {
+						index: $('.homepage').attr('index'),
+						_token: _token
+					}
+				}).done(function(data) {
+					$('.recommend__item').html($('.recommend__item').html() + data['movies']);
+					$('.homepage').attr('index', data['index']);
+					scroll = true;
+
+					return true;
+				}).fail(function(e) {
+					return false;
+				});
+			}
+		}
 	});
 </script>
 @endsection
