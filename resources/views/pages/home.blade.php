@@ -60,21 +60,21 @@
 		</div>
 	</div>
 	<div class="top_search">
-		<div class="top_search__title">Top tìm kiếm</div><a href="http://localhost/filmhot/public/phim-big-mouth-full-hd-vietsub-121348.html" class="top_search__card"><img src="{{ asset('img/121348top_search.jpg') }}" class="top_search__card__img">
+		<div class="top_search__title">Top tìm kiếm</div><a href="https://topfilm.devsne.vn/phim-big-mouth-full-hd-vietsub-121348.html" class="top_search__card"><img src="{{ asset('img/121348top_search.jpg') }}" class="top_search__card__img">
 			<div class="top_search__card__name">Big Mouth</div>
-		</a><a href="http://localhost/filmhot/public/phim-one-piece-dao-hai-tac-full-hd-vietsub-18220.html" class="top_search__card"><img src="{{ asset('img/18220top_search.jpg') }}" class="top_search__card__img">
+		</a><a href="https://topfilm.devsne.vn/phim-one-piece-dao-hai-tac-full-hd-vietsub-18220.html" class="top_search__card"><img src="{{ asset('img/18220top_search.jpg') }}" class="top_search__card__img">
 			<div class="top_search__card__name">One Piece: Đảo Hải Tặc</div>
-		</a><a href="http://localhost/filmhot/public/phim-transit-love-season-2-full-hd-vietsub-121827.html" class="top_search__card"><img src="{{ asset('img/121827top_search.jpg') }}" class="top_search__card__img">
+		</a><a href="https://topfilm.devsne.vn/phim-transit-love-season-2-full-hd-vietsub-121827.html" class="top_search__card"><img src="{{ asset('img/121827top_search.jpg') }}" class="top_search__card__img">
 			<div class="top_search__card__name">Transit Love Season 2</div>
-		</a><a href="http://localhost/filmhot/public/phim-ha-canh-khan-cap-full-hd-vietsub-025093.html" class="top_search__card"><img src="{{ asset('img/025093top_search.jpg') }}" class="top_search__card__img">
+		</a><a href="https://topfilm.devsne.vn/phim-ha-canh-khan-cap-full-hd-vietsub-025093.html" class="top_search__card"><img src="{{ asset('img/025093top_search.jpg') }}" class="top_search__card__img">
 			<div class="top_search__card__name">Hạ Cánh Khẩn Cấp</div>
-		</a><a href="http://localhost/filmhot/public/phim-thor-tinh-yeu-va-sam-set-full-hd-vietsub-022995.html" class="top_search__card"><img src="{{ asset('img/022995top_search.jpg') }}" class="top_search__card__img">
+		</a><a href="https://topfilm.devsne.vn/phim-thor-tinh-yeu-va-sam-set-full-hd-vietsub-022995.html" class="top_search__card"><img src="{{ asset('img/022995top_search.jpg') }}" class="top_search__card__img">
 			<div class="top_search__card__name">Thor: Tình Yêu Và Sấm Sét</div>
-		</a><a href="http://localhost/filmhot/public/phim-youth-mt-full-hd-vietsub-125156.html" class="top_search__card"><img src="{{ asset('img/125156top_search.jpg') }}" class="top_search__card__img">
+		</a><a href="https://topfilm.devsne.vn/phim-youth-mt-full-hd-vietsub-125156.html" class="top_search__card"><img src="{{ asset('img/125156top_search.jpg') }}" class="top_search__card__img">
 			<div class="top_search__card__name">Youth MT</div>
-		</a><a href="http://localhost/filmhot/public/phim-little-women-full-hd-vietsub-123842.html" class="top_search__card"><img src="{{ asset('img/123842top_search.jpg') }}" class="top_search__card__img">
+		</a><a href="https://topfilm.devsne.vn/phim-little-women-full-hd-vietsub-123842.html" class="top_search__card"><img src="{{ asset('img/123842top_search.jpg') }}" class="top_search__card__img">
 			<div class="top_search__card__name">Little Women</div>
-		</a><a href="http://localhost/filmhot/public/phim-good-job-full-hd-vietsub-124125.html" class="top_search__card"><img src="{{ asset('img/124125top_search.jpg') }}" class="top_search__card__img">
+		</a><a href="https://topfilm.devsne.vn/phim-good-job-full-hd-vietsub-124125.html" class="top_search__card"><img src="{{ asset('img/124125top_search.jpg') }}" class="top_search__card__img">
 			<div class="top_search__card__name">Good Job</div>
 		</a>
 	</div>
