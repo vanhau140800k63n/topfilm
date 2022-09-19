@@ -1,10 +1,5 @@
 @extends('layouts.master')
 @section('meta')
-<meta name="description" content="Xem phim {{$movie_detail->name}} FullHD Vietsub, {{$movie_detail->name}} tập 1, {{$movie_detail->name}} tập cuối - Xem phim ngay tại TopFilm.">
-<meta name="keywords" content="{{$movie_detail->meta}}">
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta property="og:locale" content="vi_VN">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{{$movie_detail->name}} - FullHD Vietsub + Thuyết Minh">
