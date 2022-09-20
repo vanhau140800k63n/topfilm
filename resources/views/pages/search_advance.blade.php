@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('meta')
-<title>Tìm kiếm: {{$key}}</title>
 @endsection
 @section('content')
 <div class="box search_advance">

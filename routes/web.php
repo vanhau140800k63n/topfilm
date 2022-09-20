@@ -20,3 +20,4 @@ Route::get('/phim-{name}', [MovieController::class, 'getMovieByName'])->name('de
 Route::get('/phim-{name}/tap-{episode}', [MovieController::class, 'getMovieByNameEposode'])->name('detail_name_episode');
 Route::post('/episode-ajax', [MovieController::class, 'getEpisodeAjax'])->name('episode-ajax');
 Route::post('/home-ajax', [HomeController::class, 'getHomeAjax'])->name('home-ajax');
+Route::get('/search_advanced/{value}', [HomeController::class, 'searchMovieAdvanced'])->name('search_advanced');

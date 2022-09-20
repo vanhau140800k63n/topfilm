@@ -16,20 +16,19 @@
 			<div class="as_name" id_key="{{$as_key}}">{{$as_container['name']}} <i class="fa-solid fa-caret-down"></i>
 		    </div>
 
-			<div class="as_container" id="as_container{{$as_key}}" params="{{$as_container['params']}}">
+			<div class="as_container" id="as_container{{$as_key}}">
 				@foreach($as_container['screeningItems'] as $key_screening_items => $screening_items)
-					<div class="as_items" index="as_{{$screening_items['id']}}">
-						@if($key_screening_items < 3) <div class="as_items_name"> {{ __('search_advanced.'. $screening_items['name'])}}</div>
-							@foreach($screening_items['items'] as $key_as_items=> $as_item)
-							<div class="as_item" value="{{$as_item['params']}}" screening_type="{{$as_item['screeningType']}}" check="{{$as_key.'.'.$as_item['screeningType'].'#'.$as_item['params']}}">
-								@if (trans()->has('search_advanced.detail.' . $as_item['name']))
-								{{ __('search_advanced.detail.'. $as_item['name'])}}
-								@else
-								{{ $as_item['name'] }}
-								@endif
-							</div>
-							@endforeach
-						@endif
+					<div class="as_items">
+						<div class="as_items_name"> {{ __('search_advanced.'. $screening_items['name'])}}</div>
+						@foreach($screening_items['items'] as $key_as_items=> $as_item)
+						<a class="as_item">
+							@if (trans()->has('search_advanced.detail.' . $as_item['name']))
+							{{ __('search_advanced.detail.'. $as_item['name'])}}
+							@else
+							{{ $as_item['name'] }}
+							@endif
+                        </a>
+						@endforeach
 				    </div>
 			    @endforeach
 			    <div class="close_search_advanced">

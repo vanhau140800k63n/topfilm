@@ -116,11 +116,13 @@
 					dataType: 'json',
 					data: {
 						index: $('.homepage').attr('index'),
+						width: $('.image').width(),
 						_token: _token
 					}
 				}).done(function(data) {
 					$('.recommend__item').html($('.recommend__item').html() + data['movies']);
 					$('.homepage').attr('index', data['index']);
+					$('.image').css('max-height', $('.card__film').width() * 1.4);
 					scroll = true;
 
 					return true;
