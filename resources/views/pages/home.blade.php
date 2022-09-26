@@ -58,6 +58,13 @@
 			</a>
 			@endforeach
 		</div>
+		<div class="text-center">
+			<div class="lds-facebook">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
 	</div>
 	<div class="top_search">
 		<div class="top_search__title">Top tìm kiếm</div><a href="https://topfilm.devsne.vn/phim-big-mouth-full-hd-vietsub-121348.html" class="top_search__card"><img src="{{ asset('img/121348top_search.jpg') }}" class="top_search__card__img">

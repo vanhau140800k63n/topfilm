@@ -18,8 +18,12 @@
 		</a>
 		@endforeach
 	</div>
-	<div id="preloader">
-		<div id="loader"></div>
+	<div class="text-center">
+		<div class="lds-facebook">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
 	</div>
 </div>
 <script>

@@ -92,7 +92,7 @@ class HomeController extends Controller
         $home_movies = Movie::selectRaw('movies.*')->distinct()->join('movie_media', 'movies.id_movie', '=', 'movie_media.movie_id')
             ->whereRaw($query)->take(12)->get();
 
-        $index = $home_movies[count($home_movies) - 1]->id;
+        $index = $home_movies[count($home_movies) - 1]->id_movie;
 
         return view('pages.search_advance', compact('value', 'valueA', 'valueB', 'valueC', 'valueD', 'home_movies', 'index'));
     }
@@ -152,7 +152,7 @@ class HomeController extends Controller
         }
 
         $home_movies = Movie::selectRaw('movies.*')->distinct()->join('movie_media', 'movies.id_movie', '=', 'movie_media.movie_id')
-            ->whereRaw($query)->take(12)->get();
+            ->whereRaw($query)->where('id_movie', '>', $request->index)->take(12)->get();
 
         $output = '';
         foreach ($home_movies as $movie) {
@@ -168,7 +168,9 @@ class HomeController extends Controller
                               <p class="film__name">' . $movie->name . ' (' . $movie->year . ')</p>
                           </a>';
         }
-        $data = ['movies' => $output, 'index' => $request->index + 12];
+
+        $index = $home_movies[count($home_movies) - 1]->id_movie;
+        $data = ['movies' => $output, 'index' => $index];
         return response()->json($data);
     }
 }
