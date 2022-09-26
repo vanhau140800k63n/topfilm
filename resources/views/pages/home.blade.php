@@ -54,7 +54,7 @@
 				}
 				?>
 				<img class="image" src="{{$url_image}}" alt="image" />
-				<p class="film__name">{{$movie->name}}</p>
+				<p class="film__name">{{$movie->name}} ({{ $movie->year }})</p>
 			</a>
 			@endforeach
 		</div>

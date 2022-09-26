@@ -21,7 +21,45 @@
 					<div class="as_items">
 						<div class="as_items_name"> {{ __('search_advanced.'. $screening_items['name'])}}</div>
 						@foreach($screening_items['items'] as $key_as_items=> $as_item)
-						<a class="as_item">
+						<?php
+						$active = '';
+						if(isset($value)) {
+							if(isset($valueA) && !empty($valueA) && intval($valueA) === intval($as_key)) {
+								$valueUrl = $value;
+                                if(isset($valueB) && (!empty($valueB) || intval($valueB) === 0) && intval($valueB) === intval($key_as_items) && $key_screening_items === 0 ) {
+                                    $active = 'active';
+								}
+								if(isset($valueC) && (!empty($valueC) || intval($valueC) === 0) && intval($valueC) === intval($key_as_items) && $key_screening_items === 1 ) {
+                                    $active = 'active';
+								}
+								if(isset($valueD) && (!empty($valueD) || intval($valueD) === 0) && intval($valueD) === intval($key_as_items) && $key_screening_items === 2 ) {
+                                    $active = 'active';
+								}
+							} else {
+								$valueUrl = 'a'. $as_key .'bcd';
+							}
+						} else {
+							$valueUrl = 'a'. $as_key .'bcd';
+						}
+						$posB = strpos($valueUrl, 'b');
+						$posC = strpos($valueUrl, 'c');
+						$posD = strpos($valueUrl, 'd');
+				
+						$valueBUrl = substr($valueUrl, $posB, $posC - $posB);
+						$valueCUrl = substr($valueUrl, $posC, $posD - $posC);
+						$valueDUrl = substr($valueUrl, $posD);
+				
+						if($key_screening_items === 0) {
+							$url = str_replace($valueBUrl, 'b'.$key_as_items, $valueUrl);
+						} elseif($key_screening_items === 1) {
+							$url = str_replace($valueCUrl, 'c'.$key_as_items, $valueUrl);
+						} else {
+							$url = str_replace($valueDUrl, 'd'.$key_as_items, $valueUrl);
+						}
+
+						$url = route('search_advanced', $url);
+						?>
+						<a class="as_item {{ $active }}" id="s{{$as_key}}" href="{{ $url }}"> 
 							@if (trans()->has('search_advanced.detail.' . $as_item['name']))
 							{{ __('search_advanced.detail.'. $as_item['name'])}}
 							@else
