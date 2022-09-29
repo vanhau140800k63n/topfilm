@@ -24,7 +24,7 @@
 						<?php
 						$active = '';
 						if(isset($value)) {
-							if(isset($valueA) && !empty($valueA) && intval($valueA) === intval($as_key)) {
+							if(isset($valueA) && (!empty($valueA) || intval($valueA) === 0) && intval($valueA) === intval($as_key)) {
 								$valueUrl = $value;
                                 if(isset($valueB) && (!empty($valueB) || intval($valueB) === 0) && intval($valueB) === intval($key_as_items) && $key_screening_items === 0 ) {
                                     $active = 'active';
