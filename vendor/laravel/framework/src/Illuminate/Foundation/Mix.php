@@ -46,7 +46,6 @@ class Mix
         }
 
         $manifestPath = public_path($manifestDirectory.'/mix-manifest.json');
-        $manifestPath = '/home2/devsnevn/public_html/topfilm.devsne.vn/mix-manifest.json';
 
         if (! isset($manifests[$manifestPath])) {
             if (! is_file($manifestPath)) {
