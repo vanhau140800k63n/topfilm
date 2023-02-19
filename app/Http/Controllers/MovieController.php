@@ -22,14 +22,6 @@ class MovieController extends Controller
             $sub = $movie_media->sub_vi;
         }
 
-        $new_request = [
-            'id_movie' => $movie_detail->id,
-            'category' => $movie_detail->category,
-            'episode' => 0,
-            'index_movie' =>  $movie_media->id
-        ];
-        ModelsRequest::create($new_request);
-
         return view('pages.movie', compact('movie_detail', 'sub', 'movie_media', 'episode'));
     }
 
@@ -43,14 +35,6 @@ class MovieController extends Controller
         if(isset($movie_media->sub_vi) && !empty($movie_media->sub_vi)) {
             $sub = $movie_media->sub_vi;
         }
-
-        $new_request = [
-            'id_movie' => $movie_detail->id,
-            'category' => $movie_detail->category,
-            'episode' => $episode - 1,
-            'index_movie' =>  $movie_media->id
-        ];
-        ModelsRequest::create($new_request);
 
         return view('pages.movie', compact('movie_detail', 'sub', 'movie_media', 'episode'));
     }
