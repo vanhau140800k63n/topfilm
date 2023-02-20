@@ -24,8 +24,11 @@ class HomeController extends Controller
         $movies = Movie::where('is_update', '!=', 3)->take(200)->get();
 
         foreach($movies as $movie) {
-            if(!file_exists($movie->image)) {
+            if(!file_exists(substr($movie->image, 26))) {
                 $movie->delete();
+            } else {
+                $movie->is_update = 3;
+                $movie->save();
             }
         }
         return 1;
