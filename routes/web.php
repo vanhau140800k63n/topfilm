@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/', [HomeController::class, 'getHomeUrl'])->name('home_url');
 Route::get('/home', [HomeController::class, 'getHomePage'])->name('home');
 Route::get('/phim-{name}', [MovieController::class, 'getMovieByName'])->name('detail_name');
 Route::get('/phim-{name}/tap-{episode}', [MovieController::class, 'getMovieByNameEposode'])->name('detail_name_episode');
