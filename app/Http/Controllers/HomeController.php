@@ -21,9 +21,8 @@ class HomeController extends Controller
     }
 
     public function removeMovie() {
-        $myfile = fopen("remove.txt", "w+") or die("Unable to open file!");
+        $myfile = fopen("remove.txt", "r") or die("Unable to open file!");
         $index = intval(fgets($myfile));
-        dd($index);
         $movies = Movie::where('id_movie', '>', $index)->orderBy('id_movie', 'asc')->take(2000)->get();
 
         foreach($movies as $movie) {
@@ -31,6 +30,7 @@ class HomeController extends Controller
                 $movie->delete();
             }
         }
+        $myfile = fopen("remove.txt", "a") or die("Unable to open file!");
         fwrite($myfile, $movie->id_movie);
         return 1;
     }
