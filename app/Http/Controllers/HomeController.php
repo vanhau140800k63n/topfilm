@@ -23,6 +23,7 @@ class HomeController extends Controller
     public function removeMovie() {
         $myfile = fopen("remove.txt", "w+") or die("Unable to open file!");
         $index = intval(fgets($myfile));
+        dd($index);
         $movies = Movie::where('id_movie', '>', $index)->orderBy('id_movie', 'asc')->take(2000)->get();
 
         foreach($movies as $movie) {
