@@ -13,6 +13,9 @@ class MovieController extends Controller
     {
         $movie_detail = Movie::where('slug', $name)->first();
 
+        if($movie_detail == null) {
+            return view('errors.404');
+        }
         $episode = 1;
 
         $sub = null;
@@ -28,6 +31,9 @@ class MovieController extends Controller
     public function getMovieByNameEposode($name, $episode)
     {
         $movie_detail = Movie::where('slug', $name)->first();
+        if($movie_detail == null) {
+            return view('errors.404');
+        }
 
         $sub = null;
         $movie_media = MovieMedia::where('movie_id', $movie_detail->id_movie)->where('episode', $episode)->first();

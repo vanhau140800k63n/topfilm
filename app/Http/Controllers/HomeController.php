@@ -21,16 +21,16 @@ class HomeController extends Controller
     }
 
     public function removeMovie() {
-        $movies = Movie::where('is_update', '!=', 3)->take(200)->get();
+        $myfile = fopen("remove.txt", "r+") or die("Unable to open file!");
+        $index = intval(fgets($myfile));
+        $movies = Movie::where('id_movies', '>', $index)->take(2000)->get();
 
         foreach($movies as $movie) {
             if(!file_exists(substr($movie->image, 26))) {
                 $movie->delete();
-            } else {
-                $movie->is_update = 3;
-                $movie->save();
             }
         }
+        fwrite($myfile, $movie->id_movie);
         return 1;
     }
 
