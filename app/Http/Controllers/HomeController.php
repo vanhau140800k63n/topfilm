@@ -30,7 +30,7 @@ class HomeController extends Controller
                 $movie->delete();
             }
         }
-        $myfile = fopen("remove.txt", "a") or die("Unable to open file!");
+        $myfile = fopen("remove.txt", "w+") or die("Unable to open file!");
         fwrite($myfile, $movie->id_movie);
         return 1;
     }
