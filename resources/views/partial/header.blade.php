@@ -5,7 +5,7 @@
 			<form>
 				@csrf
 				<input type="text" name="keyword" placeholder="Tên phim ..." class="search__input">
-				<button type="button" class="search__btn">Tìm kiếm</button>
+				<button class="search__btn">Tìm kiếm</button>
 			</form>
 		</div>
 		<?php 
