@@ -23,6 +23,22 @@ select {
   background: #000;
 }
 
+.movie_cover1 {
+	position: absolute;
+	top: 100px;
+	left: 0;
+	width: 100%;
+	height: 200px;
+}
+
+.movie_cover2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 300px;
+}
+
 
 .box {
 	margin: 0 auto;
