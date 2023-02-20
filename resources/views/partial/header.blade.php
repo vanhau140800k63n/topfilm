@@ -2,10 +2,10 @@
 	<div class="box">
 		<div class="logo glow"><a href="{{route('home')}}">TOPFILM</a></div>
 		<div class="search">
-			<form action="" method="post">
+			<form>
 				@csrf
 				<input type="text" name="keyword" placeholder="Tên phim ..." class="search__input">
-				<button class="search__btn">Tìm kiếm</button>
+				<button type="button" class="search__btn">Tìm kiếm</button>
 			</form>
 		</div>
 		<?php 
