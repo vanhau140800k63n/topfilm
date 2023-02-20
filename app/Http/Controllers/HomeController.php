@@ -21,7 +21,7 @@ class HomeController extends Controller
     }
 
     public function removeMovie() {
-        $myfile = fopen("remove.txt", "r+") or die("Unable to open file!");
+        $myfile = fopen("remove.txt", "w+") or die("Unable to open file!");
         $index = intval(fgets($myfile));
         $movies = Movie::where('id_movie', '>', $index)->take(2000)->get();
 
