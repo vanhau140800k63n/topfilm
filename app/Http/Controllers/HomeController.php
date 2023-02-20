@@ -10,9 +10,9 @@ class HomeController extends Controller
 {
     public function getHomeUrl()
     {
-        return redirect()->route('home');
+        return redirect('https://topfilm.devsne.vn/home');
     }
-    
+
     public function getHomePage()
     {
         $home_movies = Movie::select('movies.*')->distinct()->join('movie_media', 'movies.id_movie', '=', 'movie_media.movie_id')->take(12)->get();
