@@ -20,6 +20,17 @@ class HomeController extends Controller
         return view('pages.home', compact('home_movies', 'index'));
     }
 
+    public function removeMovie() {
+        $movies = Movie::where('is_update', '!=', 3)->take(200)->get();
+
+        foreach($movies as $movie) {
+            if(!file_exists($movie->image)) {
+                $movie->delete();
+            }
+        }
+        return 1;
+    }
+
     public function getHomeAjax(Request $request)
     {
         $home_movies = Movie::select('movies.*')->distinct()->join('movie_media', 'movies.id_movie', '=', 'movie_media.movie_id')->where('id_movie', '>', $request->index)->take(12)->get();

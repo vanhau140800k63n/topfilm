@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [HomeController::class, 'getHomeUrl'])->name('home_url');
+Route::get('/remove_movie', [HomeController::class, 'removeMovie'])->name('remove_movie');
 Route::get('/home', [HomeController::class, 'getHomePage'])->name('home');
 Route::get('/phim-{name}', [MovieController::class, 'getMovieByName'])->name('detail_name');
 Route::get('/phim-{name}/tap-{episode}', [MovieController::class, 'getMovieByNameEposode'])->name('detail_name_episode');
