@@ -19,17 +19,17 @@
 @endsection
 @section('content')
 <section class="movie">
-	<iframe src="https://loklok.com/detail/{{ $movie_detail->category }}/{{ $movie_detail->id }}" style="width: 100%; margin-top: 100px; height: 100vh"></iframe>
+	<iframe id="movie_frame" src="https://loklok.com/detail/{{ $movie_detail->category }}/{{ $movie_detail->id }}" style="width: 100%; margin-top: 100px; height: 100vh"></iframe>
 	<div class="box advanced">
 		<div class="movie__container">
-			<div class="movie__media" id="movie__media">
+			{{-- <div class="movie__media" id="movie__media">
 				<video class="movie__screen video-js" id="video_media" preload="auto" data-setup="{}" controls autoplay>
 					<source src="movie" type="application/x-mpegURL">
 				</video>
 				<div class="movie__load">
 					<div id="loading_movie"></div>
 				</div>
-			</div>
+			</div> --}}
 			<h1 class="movie__name" id="{{$movie_detail['name']}}">{{$movie_detail->name}} - FullHD Vietsub + Thuyết Minh
 				@if(!is_null($movie_detail->episode_count))
 				- Tập {{ $episode }}
@@ -67,6 +67,10 @@
 	$(document).ready(function() {
 		$('.movie__media').height($('.movie__media').width() * 1080 / 1920);
 		$('.movie__load').height($('.movie__media').height() + 5);
+		$('#movie_frame').contents().find('.nav-bar').hide();
+		$('#movie_frame').contents().find('.fixed-bar-wrap').hide();
+		$('#movie_frame').contents().find('.info-wrap').hide();
+		$('#movie_frame').contents().find('.recommends').hide();
 	})
 </script>
 @endsection
