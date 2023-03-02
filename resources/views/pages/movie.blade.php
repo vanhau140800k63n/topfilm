@@ -19,6 +19,13 @@
 @endsection
 @section('content')
 <section class="movie">
+	<div class="movie_frame">
+		<div class="movie_cover"></div>
+		{{-- <div class="movie_cover1"></div>
+		<div class="movie_cover2"></div> --}}
+		<iframe src="https://loklok.com/detail/{{ $movie_detail->category }}/{{ $movie_detail->id }}"
+			style="width: 100%; margin-top: 100px; height: 700px"></iframe>
+	</div>
 	<div class="box advanced">
 		<div class="movie__container">
 			<div class="movie__media" id="movie__media">
