@@ -12,33 +12,32 @@ select {
 
 .movie_frame {
 	position: relative;
+  
 }
 
 .movie_cover {
 	position: absolute;
-	top: -5px;
+	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100px;
-    background: #060606;
+  background: #000;
 }
 
 .movie_cover1 {
 	position: absolute;
-	top: 0px;
+	top: 100px;
 	left: 0;
-	width: 100px;
-	height: 630px;
-	background: #060606;
+	width: 100%;
+	height: 200px;
 }
 
 .movie_cover2 {
 	position: absolute;
 	top: 0;
-	right: 0;
-	width: 100px;
-	height: 630px;
-	background: #060606;
+	left: 0;
+	width: 100%;
+	height: 300px;
 }
 
 
@@ -373,6 +372,7 @@ iframe {
         opacity: 0;
     }
     
+@media only screen and (max-width: 576px) {
 	.box {
 		width: 100%;
 		padding: 0 15px;

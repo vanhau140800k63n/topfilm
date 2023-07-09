@@ -17,13 +17,6 @@
     <link rel="stylesheet" href="{{asset('css/swiper-bundle.min.css')}}" />
     <link rel="stylesheet" href="{{asset('css/videojs-seek-buttons.css')}}" />
     <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
-    <script type="text/javascript">
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-    </script>
     @yield('head')
 
     <?php
@@ -35,6 +28,14 @@
     @include('partial.header')
     @yield('content')
     @include('partial.footer')
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $('.image').css('max-height', $('.card__film').width() * 1.4);
+    </script>
 </body>
 
 </html>

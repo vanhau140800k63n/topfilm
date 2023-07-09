@@ -2,7 +2,7 @@
 	<div class="box">
 		<div class="logo glow"><a href="{{route('home')}}">TOPFILM</a></div>
 		<div class="search">
-			<form action="" method="post">
+			<form>
 				@csrf
 				<input type="text" name="keyword" placeholder="Tên phim ..." class="search__input">
 				<button class="search__btn">Tìm kiếm</button>
@@ -16,20 +16,57 @@
 			<div class="as_name" id_key="{{$as_key}}">{{$as_container['name']}} <i class="fa-solid fa-caret-down"></i>
 		    </div>
 
-			<div class="as_container" id="as_container{{$as_key}}" params="{{$as_container['params']}}">
+			<div class="as_container" id="as_container{{$as_key}}">
 				@foreach($as_container['screeningItems'] as $key_screening_items => $screening_items)
-					<div class="as_items" index="as_{{$screening_items['id']}}">
-						@if($key_screening_items < 3) <div class="as_items_name"> {{ __('search_advanced.'. $screening_items['name'])}}</div>
-							@foreach($screening_items['items'] as $key_as_items=> $as_item)
-							<div class="as_item" value="{{$as_item['params']}}" screening_type="{{$as_item['screeningType']}}" check="{{$as_key.'.'.$as_item['screeningType'].'#'.$as_item['params']}}">
-								@if (trans()->has('search_advanced.detail.' . $as_item['name']))
-								{{ __('search_advanced.detail.'. $as_item['name'])}}
-								@else
-								{{ $as_item['name'] }}
-								@endif
-							</div>
-							@endforeach
-						@endif
+					<div class="as_items">
+						<div class="as_items_name"> {{ __('search_advanced.'. $screening_items['name'])}}</div>
+						@foreach($screening_items['items'] as $key_as_items=> $as_item)
+						<?php
+						$active = '';
+						if(isset($value)) {
+							if(isset($valueA) && (!empty($valueA) || intval($valueA) === 0) && intval($valueA) === intval($as_key)) {
+								$valueUrl = $value;
+                                if(isset($valueB) && (!empty($valueB) || intval($valueB) === 0) && intval($valueB) === intval($key_as_items) && $key_screening_items === 0 ) {
+                                    $active = 'active';
+								}
+								if(isset($valueC) && (!empty($valueC) || intval($valueC) === 0) && intval($valueC) === intval($key_as_items) && $key_screening_items === 1 ) {
+                                    $active = 'active';
+								}
+								if(isset($valueD) && (!empty($valueD) || intval($valueD) === 0) && intval($valueD) === intval($key_as_items) && $key_screening_items === 2 ) {
+                                    $active = 'active';
+								}
+							} else {
+								$valueUrl = 'a'. $as_key .'bcd';
+							}
+						} else {
+							$valueUrl = 'a'. $as_key .'bcd';
+						}
+						$posB = strpos($valueUrl, 'b');
+						$posC = strpos($valueUrl, 'c');
+						$posD = strpos($valueUrl, 'd');
+				
+						$valueBUrl = substr($valueUrl, $posB, $posC - $posB);
+						$valueCUrl = substr($valueUrl, $posC, $posD - $posC);
+						$valueDUrl = substr($valueUrl, $posD);
+				
+						if($key_screening_items === 0) {
+							$url = str_replace($valueBUrl, 'b'.$key_as_items, $valueUrl);
+						} elseif($key_screening_items === 1) {
+							$url = str_replace($valueCUrl, 'c'.$key_as_items, $valueUrl);
+						} else {
+							$url = str_replace($valueDUrl, 'd'.$key_as_items, $valueUrl);
+						}
+
+						$url = route('search_advanced', $url);
+						?>
+						<a class="as_item {{ $active }}" id="s{{$as_key}}" href="{{ $url }}"> 
+							@if (trans()->has('search_advanced.detail.' . $as_item['name']))
+							{{ __('search_advanced.detail.'. $as_item['name'])}}
+							@else
+							{{ $as_item['name'] }}
+							@endif
+                        </a>
+						@endforeach
 				    </div>
 			    @endforeach
 			    <div class="close_search_advanced">

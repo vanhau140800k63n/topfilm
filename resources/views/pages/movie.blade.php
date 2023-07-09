@@ -1,10 +1,5 @@
 @extends('layouts.master')
 @section('meta')
-<meta name="description" content="Xem phim {{$movie_detail->name}} FullHD Vietsub, {{$movie_detail->name}} tập 1, {{$movie_detail->name}} tập cuối - Xem phim ngay tại TopFilm.">
-<meta name="keywords" content="{{$movie_detail->meta}}">
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta property="og:locale" content="vi_VN">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{{$movie_detail->name}} - FullHD Vietsub + Thuyết Minh">
@@ -12,7 +7,7 @@
 <meta property="og:url" content="">
 <meta property="og:site_name" content="{{$movie_detail->name}}">
 <meta property="og:image" content="{{$movie_detail->image}}">
-<link rel="canonical" href="{{ route('detail_name', $movie_detail->slug) }}/" />
+<link rel="canonical" href="{{ route('detail_name', $movie_detail->slug)}}" />
 <title>{{$movie_detail->name}} - FullHD Vietsub + Thuyết Minh</title>
 <link href="{{ asset('css/video-js.css') }}" rel="stylesheet" />
 <link rel="stylesheet" href="{{asset('css/videojs-seek-buttons.css')}}" />
@@ -24,6 +19,13 @@
 @endsection
 @section('content')
 <section class="movie">
+	<div class="movie_frame">
+		<div class="movie_cover"></div>
+		{{-- <div class="movie_cover1"></div>
+		<div class="movie_cover2"></div> --}}
+		<iframe src="https://loklok.com/detail/{{ $movie_detail->category }}/{{ $movie_detail->id }}"
+			style="width: 100%; margin-top: 100px; height: 700px"></iframe>
+	</div>
 	<div class="box advanced">
 		<div class="movie__container">
 			<div class="movie__media" id="movie__media">
@@ -35,15 +37,15 @@
 				</div>
 			</div>
 			<h1 class="movie__name" id="{{$movie_detail['name']}}">{{$movie_detail->name}} - FullHD Vietsub + Thuyết Minh
-			@if(!is_null($movie_detail->episode_count))
-			- Tập {{ $episode }}
-			@endif
+				@if(!is_null($movie_detail->episode_count))
+				- Tập {{ $episode }}
+				@endif
 			</h1>
 			@if(!is_null($movie_detail->episode_count))
 			<div class="movie__episodes">
-            @for($i = 1; $i <= $movie_detail->episode_count; ++$i)
-			<a class="episode {{ $i == $episode ? 'active' : '' }}" href="{{ route('detail_name_episode', ['name' => $movie_detail->slug, 'episode' => $i]) }}"> {{ $i }} </a>
-            @endfor
+				@for($i = 1; $i <= $movie_detail->episode_count; ++$i)
+					<a class="episode {{ $i == $episode ? 'active' : '' }}" href="{{ route('detail_name_episode', ['name' => $movie_detail->slug, 'episode' => $i]) }}"> {{ $i }} </a>
+				@endfor
 			</div>
 			@endif
 			<div class="movie__info">
@@ -71,85 +73,6 @@
 	$(document).ready(function() {
 		$('.movie__media').height($('.movie__media').width() * 1080 / 1920);
 		$('.movie__load').height($('.movie__media').height() + 5);
-
-		video = videojs('video_media');
-		getVideo = setInterval(restart, 1000);
-
-		@if($sub != '')
-		fetch("{{$sub}}").then((r) => {
-			r.text().then((d) => {
-				let srtText = d
-				var srtRegex = /(.*\n)?(\d\d:\d\d:\d\d),(\d\d\d --> \d\d:\d\d:\d\d),(\d\d\d)/g;
-				var vttText = 'WEBVTT\n\n' + srtText.replace(srtRegex, '$1$2.$3.$4');
-				var vttBlob = new Blob([vttText], {
-					type: 'text/vtt'
-				});
-				var blobURL = URL.createObjectURL(vttBlob);
-				let captionOption = {
-					kind: 'captions',
-					srclang: 'vi',
-					label: 'Tiếng Việt',
-					src: blobURL
-				};
-				video.addRemoteTextTrack(captionOption);
-			})
-		})
-		@endif
-
-		document.onkeydown = function(event) {
-			switch (event.keyCode) {
-				case 37:
-					event.preventDefault();
-					vid_currentTime = video.currentTime();
-					video.currentTime(vid_currentTime - 5);
-					break;
-				case 39:
-					event.preventDefault();
-					vid_currentTime = video.currentTime();
-					video.currentTime(vid_currentTime + 5);
-					break;
-			}
-		};
-
-		video.seekButtons({
-			forward: 10,
-			back: 10
-		});
-
-		function restart() {
-			if (video['cache_']['duration'] == 0 || !video['controls_'] || video['error_'] != null || isNaN(video['cache_']['duration']) || video['cache_']['duration'] == 'Infinity') {
-				reload();
-			} else {
-				$('.movie__load').hide();
-				if (video.textTracks()['tracks_'].length > 1) {
-					video.textTracks()[0].mode = 'showing';
-				}
-				clearInterval(getVideo);
-			}
-		}
-
-		function reload() {
-			$.ajax({
-				url: "{{ route('episode-ajax')}}",
-				headers: {
-					'Content-Type': 'application/x-www-form-urlencoded'
-				},
-				type: "POST",
-				dataType: 'json',
-				data: {
-					movie_id: '{{ $movie_detail->id_movie }}',
-					episode: '{{ $episode }}',
-					_token: '{{ csrf_token() }}'
-				}
-			}).done(function(data) {
-				if (video['cache_']['duration'] == 0 || !video['controls_'] || video['error_'] != null || isNaN(video['cache_']['duration']) || video['cache_']['duration'] == 'Infinity') {
-					video.src(data);
-				}
-				return true;
-			}).fail(function(e) {
-				return false;
-			});
-		}
 	})
 </script>
 @endsection
